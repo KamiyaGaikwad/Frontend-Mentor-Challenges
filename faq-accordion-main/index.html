@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | FAQ accordion</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <h1>
+      <img src="./assets/images/icon-star.svg" alt="star" />
+      FAQs
+    </h1>
+
+    <details class="systemRequirements">
+      <summary>
+        <h2>
+          <span>What is Frontend Mentor, and how will it help me?</span>
+          <img src="./assets/images/icon-plus.svg" alt="plus" class="plusIcon" />
+          <img src="./assets/images/icon-minus.svg" alt="minus" class="minusIcon" />
+        </h2>
+      </summary>
+      <p>
+        Frontend Mentor offers realistic coding challenges to help developers improve their 
+        frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for 
+        all levels and ideal for portfolio building.
+      </p>
+    </details>
+    <hr />
+
+    <details class="systemRequirements">
+      <summary>
+        <h2>
+          <span>Is Frontend Mentor free?</span>
+          <img src="./assets/images/icon-plus.svg" alt="plus" class="plusIcon" />
+          <img src="./assets/images/icon-minus.svg" alt="minus" class="minusIcon" />
+        </h2>
+      </summary>
+      <p>
+        Yes, Frontend Mentor offers both free and premium coding challenges, with the free 
+        option providing access to a range of projects suitable for all skill levels.
+      </p>
+    </details>
+    <hr />
+
+    <details class="systemRequirements">
+      <summary>
+        <h2>
+          <span>Can I use Frontend Mentor projects in my portfolio?</span>
+          <img src="./assets/images/icon-plus.svg" alt="plus" class="plusIcon" />
+      <img src="./assets/images/icon-minus.svg" alt="minus" class="minusIcon" />
+        </h2>
+      </summary>
+      <p>
+        Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent
+        way to showcase your skills to potential employers!
+      </p>
+    </details>
+    <hr />
+
+    <details class="systemRequirements">
+      <summary>
+        <h2>
+          <span>How can I get help if I'm stuck on a Frontend Mentor challenge?</span>
+          <img src="./assets/images/icon-plus.svg" alt="plus" class="plusIcon" />
+      <img src="./assets/images/icon-minus.svg" alt="minus" class="minusIcon" />
+        </h2>
+      </summary>
+      <p>
+        The best place to get help is inside Frontend Mentor's Discord community. There's a help 
+        channel where you can ask questions and seek support from other community members.
+      </p>
+    </details>
+    
+  </main>
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://www.frontendmentor.io/profile/KamiyaGaikwad" target="_blank">Kamiya Gaikwad</a>.
+  </footer>
+
+  <script>
+const summaryList = document.querySelectorAll('.systemRequirements summary');
+
+summaryList.forEach((summary, index) => {
+  const details = summary.parentElement;
+  const plusIcon = summary.querySelector('.plusIcon');
+  const minusIcon = summary.querySelector('.minusIcon');
+
+  summary.addEventListener('click', function() {
+    if (details.open) {
+      plusIcon.style.display = 'flex';
+      minusIcon.style.display = 'none';
+    } else {
+      plusIcon.style.display = 'none';
+      minusIcon.style.display = 'flex';
+    }
+  });
+
+  summary.addEventListener('keydown', function(event) {
+    const currentIndex = Array.from(summaryList).indexOf(summary);
+
+    switch (event.key) {
+      case 'ArrowUp':
+        if (currentIndex > 0) {
+          summaryList[currentIndex - 1].focus();
+        }
+        break;
+      case 'ArrowDown':
+        if (currentIndex < summaryList.length - 1) {
+          summaryList[currentIndex + 1].focus();
+        }
+        break;
+      case 'Enter':
+      case ' ':
+        event.preventDefault();
+        details.open = !details.open;
+        if (details.open) {
+          minusIcon.style.display = 'flex';
+          plusIcon.style.display = 'none';
+        } else {
+          minusIcon.style.display = 'none';
+          plusIcon.style.display = 'flex';
+        }
+        break;
+    }
+  });
+});
+
+  </script>
+</body>
+</html>
