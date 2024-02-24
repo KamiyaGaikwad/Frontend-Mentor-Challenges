@@ -12,3 +12,4 @@
 10. Recipe Page Main Challenge - https://frontend-recipe-page-main-challenge.netlify.app/
 11. Four Card Feature Section Master - https://frontend-four-card-feature-challenge.netlify.app/
 12. Product Preview Card Challenge - https://frontend-productpreviewcard-challenge.netlify.app/
+13. Faq Accordion Main Challenge - https://frontend-faq-accordion-main-challenge.netlify.app/
